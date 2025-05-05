@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>O Marco do Descobrimento</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+
+    :root {
+      --primary: #002b45;
+      --secondary: #0077cc;
+      --accent: #ffc107;
+      --light: #f4f4f4;
+      --dark: #333;
+      --white: #fff;
+      --gray: #e0e0e0;
+    }
+    .hero-text{
+        padding-left: 30%;
+        margin-left: 20%;
+        font-size: 10%;
+        color: #ffc801;
+        font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: var(--light);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    /* Header */
+    header {
+      background-color: var(--primary);
+      color: var(--white);
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      font-weight: 300;
+    }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('13.27.32_3cde13b8.jpg') no-repeat center center/cover;
+      color: var(--white);
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-content {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      max-width: 800px;
+      margin-left: auto;
+      padding-right: 40px;
+    }
+
+    .hero-text {
+      text-align: right;
+      margin-bottom: 30px;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    /* Book Info */
+    .book-section {
+      padding: 60px 0;
+      background-color: var(--white);
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      color: var(--primary);
+      margin-bottom: 40px;
+      position: relative;
+    }
+
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background-color: var(--accent);
+      margin: 15px auto 0;
+    }
+
+    .book-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+     
+    }
+
+    .book-cover {
+      flex: 1 1 0px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .book-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+
+    }
+
+    .book-details {
+      flex: 2 1 100px;
+      margin-left: 1%;
+    }
+
+    .book-details h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .book-details p {
+      margin-bottom: 15px;
+    }
+
+    .book-meta {
+      margin-bottom: 20px;
+    }
+
+    .book-meta p {
+      font-weight: 500;
+    }
+
+    .book-meta span {
+      font-weight: 300;
+    }
+
+    /* Book Features */
+    .features-section {
+      padding: 60px 0;
+      background-color: var(--light);
+    }
+
+    .features-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 90px;
+      align-items: center;
+    }
+
+    .features-image {
+      flex: 1 1 2px;
+      margin-left: 60px;
+    }
+
+    .features-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .features-list {
+      flex: 1 1 150px;
+    }
+
+    .features-list ul {
+      list-style: none;
+    }
+
+    .features-list li {
+      margin-bottom: 15px;
+      position: relative;
+      padding-left: 20px;
+      font-size: 1.1rem;
+    }
+
+    .features-list li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
+    /* Testimonials */
+    .testimonials-section {
+      padding: 35px 0px;
+      background-color: var(--white);
+    }
+
+    .testimonials-container {
+      position: relative;
+      overflow: hidden;
+      padding: 10px 0;
+    }
+
+    .testimonials-slider {
+      display: flex;
+      transition: transform 0.5s ease;
+    }
+
+    .testimonial-card {
+      flex: 0 0 calc(33.333% - 20px);
+      margin: 0 10px;
+      background-color: var(--light);
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      min-height: 300px;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    }
+
+    .testimonial-header {
+      display: flex;
+      align-items: center;
+      margin-bottom: 15px;
+    }
+
+    .testimonial-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: var(--gray);
+      margin-right: 15px;
+      overflow: hidden;
+    }
+
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-name {
+      font-weight: 600;
+      margin-bottom: 5px;
+    }
+
+    .testimonial-stars {
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    .testimonial-text {
+      font-style: italic;
+      color: var(--dark);
+    }
+
+    /* Author Section */
+    .author-section {
+      padding: 60px 0;
+      background-color: var(--light);
+    }
+
+    .author-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .author-photo {
+      flex: 1 1 200px;
+    }
+
+    .author-photo img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .author-info {
+      flex: 2 1 300px;
+    }
+
+    .author-info h3 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .author-info p {
+      margin-bottom: 15px;
+    }
+
+    /* Pricing Section */
+    .pricing-section {
+      padding: 60px 0;
+      background-color: var(--white);
+      text-align: center;
+    }
+
+    .pricing-book {
+      max-width: 300px;
+      margin: 0 auto 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .pricing-book img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .pricing-value {
+      margin: 20px 0;
+      font-size: 1.5rem;
+    }
+
+    .old-price {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .new-price {
+      color: var(--secondary);
+      font-weight: 700;
+      font-size: 2.5rem;
+    }
+
+    .pricing-features {
+      max-width: 400px;
+      margin: 0 auto 30px;
+      text-align: left;
+    }
+
+    .pricing-features ul {
+      list-style: none;
+    }
+
+    .pricing-features li {
+      margin-bottom: 10px;
+      position: relative;
+      padding-left: 25px;
+    }
+
+    .pricing-features li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+
+    /* Full Width Image */
+    .full-width-image {
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
+      max-width: none;
+      display: block;
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    /* Button */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background-color: var(--secondary);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 600;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    .btn:hover {
+      background-color: #005fa3;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    }
+
+    .btn-accent {
+      background-color: var(--accent);
+      color: var(--dark);
+    }
+
+    .btn-accent:hover {
+      background-color: #e0a800;
+    }
+
+    /* Footer */
+    footer {
+      background-color: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 30px 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+    .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .testimonial-card {
+        flex: 0 0 calc(50% - 20px);
+      }
+      .hero-text{
+        padding-left: 30%;
+        margin-left: 20%;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .book-cover {
+      flex: 1 1 200px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+      
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .hero {
+        padding: 60px 0;
+      }
+
+      .hero-content {
+        align-items: center;
+        padding-right: 0;
+      }
+
+      .hero-text {
+        text-align: center;
+      }
+
+      .book-container, .author-container, .features-container {
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .book-cover, .author-photo, .features-image {
+        flex: 1 1 auto;
+        max-width: 300px;
+      }
+     
+      }
+
+      .testimonial-card {
+        flex: 0 0 calc(100% - 20px);
+      }
+      .hero-text{
+        padding-left: 30%;
+        margin-left: 20%;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .features-section {
+      padding: 60px 0;
+      background-color: var(--light);
+    }
+
+    .features-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .features-section {
+      padding: 0px 0;
+      background-color: var(--light);
+    }
+
+   
+
+    .features-image {
+      flex: 1 10px;
+      margin-left: 1%;
+    }
+
+    .features-image img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+   
+
+
+
+    .book-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .book-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+
+    }
+
+      .book-cover img {
+      flex: 1 1 200px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+      
+    
+
+    @media (max-width: 576px) {
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .hero-text{
+        padding-left: 30%;
+        margin-left: 20%;
+      }
+      .hero h2 {
+        font-size: 1.8rem;
+      }
+
+      .section-title {
+        font-size: 1.8rem;
+      }
+      .features-image {
+        margin-right: 0%;
+      }
+      .features-section {
+      padding-left: 5%;
+      background-color: var(--light);
+    }
+
+    .features-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      align-items: center;
+    }
+
+    .features-image {
+      flex: 1 1 5px;
+      margin-left: 0%;
+    }
+
+    .features-list {
+        margin-top: 0px;
+    }
+
+  
+    .responsive-image {
+      max-width: 100%;
+      max-height: 100%;
+      width: auto;
+      height: auto;
+      object-fit: contain; /* Garante que a imagem inteira será exibida */
+    }
+
+    /* Estilos adicionais para conteúdo sobre a imagem (opcional) */
+    .content-overlay {
+      position: absolute;
+      top: 50%;
+      right: 5%;
+      transform: translateY(-50%);
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 400px;
+    }
+
+
+
+
+    .book-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+    .book-cover img {
+      width: 100%;
+      height: auto;
+      display: block;
+
+    }
+
+      .book-cover img {
+      flex: 1 1 200px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>O Marco do Descobrimento</h1>
+      <p>Uma obra reveladora sobre os primórdios do nosso território.</p>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <p id="nome1">Uma nova tese aponta o litoral potiguar como o verdadeiro local do Descobrimento, com base em provas e análises inéditas.</p> </p>
+        </div>
+        <a href="https://pay.kiwify.com.br/Dmb5MPG" class="btn">Comprar Agora</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="book-section">
+    <div class="container">
+      <div class="book-container">
+        <div class="book-cover">
+          <img id="priImage" src="Imagem do WhatsApp de 2025-04-29 à(s) 12.28.22_84c7340a.jpg" alt="Capa do livro O Marco do Descobrimento">
+        </div>
+        <div class="book-details">
+          <h2>Sobre o Livro:</h2>
+          <div class="book-meta">
+            <p><strong>Título:</strong> <span>O Marco do Descobrimento</span></p>
+            <p><strong>Autor:</strong> <span>Francisco Fernandes Torres</span></p>
+            <p><strong>Gênero:</strong> <span>História do Brasil</span></p>
+            <p><strong>Páginas:</strong> <span>376</span></p>
+          </div>
+          <p>ㅤEscrito por Francisco Fernandes Torres, este livro é fruto de anos de pesquisa histórica e apresenta evidências surpreendentes sobre o início da nossa história.</p>
+          <a id="comprar" href="https://pay.kiwify.com.br/Dmb5MPG" src="" target="_blank" class="btn">Comprar Agora</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="container">
+      <h2 class="section-title">O que você vai encontrar no livro?</h2>
+      <div class="features-container">
+        <div class="features-image">
+          <img src="Livro_noTabletCelular.jpg" alt="Conteúdo do livro O Marco do Descobrimento">
+        </div>
+        <div class="features-list">
+          <ul>
+            <li>Teses inéditas sobre o Descobrimento do Brasil</li>
+            <li>Provas documentais e comparativas com fontes históricas</li>
+            <li>A verdadeira importância do litoral potiguar</li>
+            <li>Uma nova perspectiva sobre nossa origem como nação</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials-section">
+    <div class="container">
+      <h2 class="section-title">Depoimentos de alguns leitores:</h2>
+      <div class="testimonials-container">
+        <div class="testimonials-slider" id="testimonialsSlider">
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Maria Silva">
+              </div>
+              <div>
+                <div class="testimonial-name">Maria Silva</div>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "Uma leitura obrigatória para quem quer entender as verdadeiras origens do nosso país. O autor apresenta argumentos convincentes e bem pesquisados."
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="João Santos">
+              </div>
+              <div>
+                <div class="testimonial-name">João Santos</div>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "Finalmente um livro que desafia a narrativa tradicional com fatos e documentos. Recomendo para todos os amantes da história brasileira."
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Ana Oliveira">
+              </div>
+              <div>
+                <div class="testimonial-name">Ana Oliveira</div>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "O autor fez um trabalho excepcional ao reunir tantas evidências. O livro mudou completamente minha visão sobre o descobrimento do Brasil."
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/men/22.jpg" alt="Carlos Mendes">
+              </div>
+              <div>
+                <div class="testimonial-name">Carlos Mendes</div>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "Uma abordagem corajosa e bem fundamentada. O livro traz à tona informações que deveriam ser mais divulgadas nos meios acadêmicos."
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/women/54.jpg" alt="Patrícia Costa">
+              </div>
+              <div>
+                <div class="testimonial-name">Patrícia Costa</div>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "Como professora de história, fiquei impressionada com a profundidade da pesquisa. Vou recomendar para meus alunos e colegas."
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/men/76.jpg" alt="Ricardo Almeida">
+              </div>
+              <div>
+                <div class="testimonial-name">Ricardo Almeida</div>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "Leitura fascinante! O autor consegue tornar um tema complexo acessível ao público geral sem perder o rigor acadêmico."
+            </div>
+          </div>
+          <div class="testimonial-card">
+            <div class="testimonial-header">
+              <div class="testimonial-avatar">
+                <img src="https://randomuser.me/api/portraits/women/89.jpg" alt="Fernanda Lima">
+              </div>
+              <div>
+                <div class="testimonial-name">Fernanda Lima</div>
+                <div class="testimonial-stars">
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                  <i class="fas fa-star"></i>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-text">
+              "Comprei por curiosidade e terminei completamente convencida pela tese do autor. Uma obra que merece ser lida e discutida."
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="author-section">
+    <div class="container">
+      <div class="author-container">
+        <div class="author-photo">
+          <img src="fotoAutor.jpg" alt="Foto do autor Francisco Fernandes">
+        </div>
+        <div class="author-info">
+          <h3>Autor:</h3>
+          <p><strong>Nome:</strong> Francisco Fernandes Torres</p>
+          <p>ㅤPopularmente chamado de "Chicão", é filho de João Vicente Torres (João Caboclo) e Maria Borges Torres (Maria Paixão). Nasceu no dia 13 de fevereiro de 1963, no distrito de Alto do Sítio, município de Ceará-Mirim, estado do Rio Grande do Norte.</p>
+          <p>ㅤCursou o Ensino Fundamental nas escolas estaduais Marcílio Teixeira (Pedra Grande/RN - 1972 a 1975), Professor Edgar Barbosa (Ceará Mirim/RN - 1976), Monsenhor Celso Cicco (Ceará Mirim/RN - 1977) e Senador Dinarte Mariz (São Bento do Norte/RN - 1978 e 1979).</p>
+          <p>ㅤO Ensino Médio foi realizado no Colégio Agrícola de Jundiaí (Macaíba/RN - 1980 a 1982), onde fez o curso Técnico em Agropecuária. Formou-se em Pedagogia pela Universidade Federal do Rio Grande do Norte (UFRN), em 2002. É pós-graduado em Didática do Ensino pela Universidade Potiguar (UnP - 2006).</p>
+        </div>
+      </div>
+
+      <div class="author-info">
+        <p>ㅤDesde o dia 06 de agosto de 1983, Francisco Fernandes Torres ocupa o Cargo de Professor no Governo do Estado do Rio Grande do Norte. É lotado na Escola Estadual Marcílio Teixeira, na cidade de Pedra Grande, onde leciona Língua Portuguesa e Língua Espanhola para alunos do Ensino Médio.</p>
+        <p>ㅤTambém é concursado para o cargo de Professor do Ensino Fundamental no Município de Pedra Grande. Chicão também trabalhou para o IBGE, como Recenseador e como Agente Censitário Municipal (ACM).</p>
+        <p>ㅤFrancisco Fernandes Torres, o Chicão, tem experiência na administração pública: exerceu os cargos de Diretor Administrativo da Unidade Integrada de Saúde de Pedra Grande (1987 a 1989), Secretário Municipal do Turismo (2001 a 2004), e de Secretário Municipal da Educação e da Cultura, (2005 a 2008).</p>
+        <p>ㅤTambém foi o primeiro Diretor eleito da Escola Estadual Marcílio Teixeira, exercendo o cargo em duas oportunidades. Assumiu em 2015 o cargo de Secretário Municipal de Turismo. Em 2017, incorporou Saneamento e Meio Ambiente. Foi o primeiro presidente do Conselho Municipal dos Direitos da Criança e do Adolescente.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pricing-section">
+    <div class="container">
+      <h2 class="section-title">Adquira já o seu exemplar:</h2>
+      <div class="pricing-book">
+        <img src="Imagem do WhatsApp de 2025-04-29 à(s) 12.28.22_84c7340a.jpg" alt="Capa do livro O Marco do Descobrimento">
+      </div>
+      <div class="pricing-value">
+        <span class="old-price">De R$97</span> por <span class="new-price">R$47</span>
+      </div>
+      <div class="pricing-features">
+        <ul>
+          <li>100% digital em PDF</li>
+          <li>Leitura imediata no seu celular, tablet ou computador</li>
+          <li>Compre com segurança pela Kiwify</li>
+        </ul>
+      </div>
+      <a href="https://pay.kiwify.com.br/Dmb5MPG" target="_blank" class="btn btn-accent">Quero Ler Agora</a>
+    </div>
+  </section>
+
+  <img src="Imagem 14.41.50_6e16d2dd.jpg" alt="Imagem complementar do livro" class="full-width-image">
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2022 O Marco do Descobrimento. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+
+        // Testimonials Slider - Versão Infinita
+        document.addEventListener('DOMContentLoaded', function() {
+      const slider = document.getElementById('testimonialsSlider');
+      const cards = document.querySelectorAll('.testimonial-card');
+      const cardWidth = cards[0].offsetWidth + 20; // width + margin
+      let currentIndex = 0;
+      const visibleCards = window.innerWidth >= 992 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+
+      // Clona os primeiros cards e adiciona ao final para criar efeito infinito
+      for (let i = 0; i < visibleCards; i++) {
+        const clone = cards[i].cloneNode(true);
+        clone.classList.add('clone');
+        slider.appendChild(clone);
+      }
+
+      function updateSlider(reset = false) {
+        if (reset) {
+          // Transição instantânea quando resetamos
+          slider.style.transition = 'none';
+          currentIndex = 0;
+        } else {
+          slider.style.transition = 'transform 0.5s ease';
+        }
+
+        const newPosition = -currentIndex * cardWidth;
+        slider.style.transform = `translateX(${newPosition}px)`;
+      }
+
+      function nextSlide() {
+        currentIndex++;
+
+        // Quando chegar ao final dos cards originais, volta ao início sem transição
+        if (currentIndex >= cards.length) {
+          setTimeout(() => {
+            updateSlider(true);
+          }, 500); // Tempo para coincidir com a duração da transição
+        } else {
+          updateSlider();
+        }
+      }
+
+      // Auto slide every 5 seconds
+      let slideInterval = setInterval(nextSlide, 5000);
+
+      // Pausa o slider quando o mouse está sobre ele
+      slider.parentElement.addEventListener('mouseenter', () => {
+        clearInterval(slideInterval);
+      });
+
+      // Retoma o slider quando o mouse sai
+      slider.parentElement.addEventListener('mouseleave', () => {
+        slideInterval = setInterval(nextSlide, 5000);
+      });
+
+      // Handle window resize
+      window.addEventListener('resize', function() {
+        const newVisibleCards = window.innerWidth >= 992 ? 3 : (window.innerWidth >= 768 ? 2 : 1);
+        if (newVisibleCards !== visibleCards) {
+          currentIndex = 0;
+          updateSlider(true);
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
